@@ -139,6 +139,10 @@ processImage = (imageFile, rest...) ->
       else
         data = canvas.toDataURL("image/jpeg")
 
-      callback(data)
+      callback({
+        data: data, 
+        width: canvas.width,
+        height: canvas.height
+      });
 
     binaryReader.readAsArrayBuffer imageFile
